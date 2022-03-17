@@ -4,27 +4,27 @@ import 'todo_item.dart';
 import 'add_task_dialog.dart';
 import 'todo_item_widget.dart';
 
-class _ViewModelState {
+class _ModelState {
   final List<ToDoItem> items;
 
-  _ViewModelState({
+  _ModelState({
     this.items = const <ToDoItem>[],
   });
 
-  _ViewModelState copyWith({
+  _ModelState copyWith({
     List<ToDoItem>? items,
   }) {
-    return _ViewModelState(
+    return _ModelState(
       items: items ?? this.items,
     );
   }
 }
 
 class _ViewModel extends ChangeNotifier {
-  var _state = _ViewModelState();
+  var _state = _ModelState();
 
-  _ViewModelState get state => _state;
-  set state(_ViewModelState val) {
+  _ModelState get state => _state;
+  set state(_ModelState val) {
     _state = _state.copyWith(items: val.items);
     notifyListeners();
   }
